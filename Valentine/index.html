@@ -1,0 +1,115 @@
+
+    <div 
+      dangerouslySetInnerHTML={{ 
+        __html: `
+          <!DOCTYPE html>
+          <html lang="es">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Invitación de San Valentín</title>
+              <style>
+                  body {
+                      font-family: Arial, sans-serif;
+                      text-align: center;
+                      background-color: #fe9f9f;
+                  }
+                  .card {
+                      background: #e32552;
+                      color: white;
+                      padding: 20px;
+                      border-radius: 10px;
+                      inline-size: 300px;
+                      margin: 50px auto;
+                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                  }
+                  .heart {
+                      font-size: 50px;
+                  }
+                  .gallery {
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: center;
+                      gap: 10px;
+                      margin: 10px auto;
+                  }
+                  .gallery img {
+                      inline-size: 120px;
+                      block-size: 120px;
+                      border-radius: 10px;
+                      object-fit: cover;
+                  }
+                  button {
+                      background: white;
+                      color: #ff4d6d;
+                      border: none;
+                      padding: 10px;
+                      cursor: pointer;
+                      font-size: 16px;
+                      border-radius: 5px;
+                      margin-block-start: 10px;
+                  }
+                  button:hover {
+                      background: #ffd1dc;
+                  }
+                  .carousel {
+                      display: flex;
+                      overflow: hidden;
+                      inline-size: 250px;
+                      block-size: 180px;
+                      margin: 10px auto;
+                      border-radius: 10px;
+                  }
+                  .carousel img {
+                      inline-size: 250px;
+                      block-size: 180px;
+                      display: none;
+                      object-fit: cover;
+                  }
+                  .carousel img.active {
+                      display: block;
+                  }
+              </style>
+          </head>
+          <body>
+              <audio autoplay loop>
+                  <source src="Caifanes - Viento (Letra  Lyrics).mp3" type="audio/mpeg">
+                  Tu navegador no soporta audio.
+              </audio>
+              <div class="card">
+                  <div class="heart">❤️</div>
+                  <h2>¡Feliz San Valentín!</h2>
+                  <h2>Mi Cachito</h2>
+                  <h2>15-02-2025</h2>
+                  <p>¿Me darías el honor de ser tu Valentine Day?</p>
+                  <div class="carousel">
+                      <img src="Imagen1.jpg" class="active">
+                      <img src="Imagen 2.jpg">
+                      <img src="Imagen3.jpg">
+                      <img src="Imagen4.jpg">
+                      <img src="imagen5.png">
+                  </div>
+                  <button onclick="mostrarMensaje()">Sí</button>
+                  <button onclick="alert('¡Oh no! 😢')">No</button>
+                  <p id="mensaje" style="display: none; margin-block-start: 10px;">¡No puedo esperar para verte! 💖</p>
+              </div>
+              <script>
+                  function mostrarMensaje() {
+                      document.getElementById("mensaje").style.display = "block";
+                  }
+                  
+                  let currentIndex = 0;
+                  const images = document.querySelectorAll(".carousel img");
+                  function changeImage() {
+                      images[currentIndex].classList.remove("active");
+                      currentIndex = (currentIndex + 1) % images.length;
+                      images[currentIndex].classList.add("active");
+                  }
+                  setInterval(changeImage, 3000);
+              </script>
+          </body>
+          </html>
+        
+      
+
+
